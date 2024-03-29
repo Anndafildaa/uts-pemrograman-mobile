@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'program_studi_widgets.dart';
+import 'package:uts_pemmob/launch_url.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Color.fromARGB(255, 255, 241, 113),
-          toolbarHeight: 120, // Menambahkan tinggi App Bar menjadi 100
+          toolbarHeight: 120,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -45,7 +47,42 @@ class MyApp extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 8),
+                    SizedBox(
+                      height: 12,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment
+                          .center, // Align children horizontally at the center
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            LaunchURL('https://fisip.upnjatim.ac.id');
+                          },
+                          child: Text(
+                            '🌐 fisip.upnjatim.ac.id',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                            width: 12), // Add some space between the URL texts
+                        GestureDetector(
+                          onTap: () {
+                            LaunchURL('mailto:fisip@upnjatim.ac.id');
+                          },
+                          child: Text(
+                            '✉ fisip@upnjatim.ac.id',
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 12),
                     Text(
                       "Keberadaan Fakultas Ilmu Sosial dan Ilmu Politik diawali dengan berdirinya Fakultas Ilmu Administrasi Negara dan Administrasi Niaga. Satu tahun kemudian Fakultas Ilmu Administrasi membuka satu jurusan baru yaitu jurusan Ilmu Komunikasi pada tahun ajaran 1994/1995. Dalam perkembangan selanjutnya terbit Surat Keputusan Rektor UPN “Veteran” Jawa Timur Nomor : Skep/101/IX/2005 tanggal 6 Mei 2005 tentang Pergantian nama Fakultas Ilmu Administrasi UPN”Veteran” Jawa Timur menjadi Fakultas Ilmu Sosial dan Ilmu Politik. Fakultas Ilmu Sosial dan Ilmu Politik memiliki beberapa program studi diantaranya yaitu :",
                       textAlign: TextAlign.justify,
@@ -54,7 +91,6 @@ class MyApp extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    SizedBox(height: 8),
                   ],
                 ),
               ),
@@ -70,57 +106,6 @@ class MyApp extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class ProgramStudiList extends StatelessWidget {
-  final List<Map<String, String>> programStudiList = [
-    {'title': 'Administrasi Negara', 'image': 'assets/adneg.jpg'},
-    {'title': 'Administrasi Bisnis', 'image': 'assets/adbis.jpg'},
-    {'title': 'Ilmu Komunikasi', 'image': 'assets/ikom.jpg'},
-    {'title': 'Hubungan Internasional', 'image': 'assets/hi.jpg'},
-    {'title': 'Pariwisata', 'image': 'assets/pariwisata.jpg'},
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: programStudiList.map((program) {
-        return ProgramStudiTile(
-          title: program['title']!,
-          image: program['image']!,
-        );
-      }).toList(),
-    );
-  }
-}
-
-class ProgramStudiTile extends StatelessWidget {
-  final String title;
-  final String image;
-
-  const ProgramStudiTile({
-    Key? key,
-    required this.title,
-    required this.image,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        onTap: () {
-          // Tambahkan aksi ketika program studi dipilih
-        },
-        leading: CircleAvatar(
-          backgroundImage: AssetImage(image),
-          radius: 30,
-        ),
-        title: Text(title),
-        subtitle: const Text("Klik untuk detail"),
-        tileColor: Colors.white70,
       ),
     );
   }
