@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 12,
+                      height: 6,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment
@@ -58,25 +58,30 @@ class MyApp extends StatelessWidget {
                           onTap: () {
                             LaunchURL('https://fisip.upnjatim.ac.id');
                           },
-                          child: Text(
-                            '🌐 fisip.upnjatim.ac.id',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.blue,
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: Text(
+                              '🌐 fisip.upnjatim.ac.id',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.blue,
+                              ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                            width: 12), // Add some space between the URL texts
+                        SizedBox(width: 12),
                         GestureDetector(
                           onTap: () {
                             LaunchURL('mailto:fisip@upnjatim.ac.id');
                           },
-                          child: Text(
-                            '✉ fisip@upnjatim.ac.id',
-                            style: TextStyle(
-                              fontSize: 15,
-                              color: Colors.blue,
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: Text(
+                              '✉ fisip@upnjatim.ac.id',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.blue,
+                              ),
                             ),
                           ),
                         ),

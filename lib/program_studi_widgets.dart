@@ -2,16 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:uts_pemmob/profile_kelompok.dart';
-import 'prodi_data.dart'; // Import file prodi_data.dart
+import 'prodi_data.dart';
+
+class ProgramStudi {
+  final String title;
+  final String image;
+
+  ProgramStudi({required this.title, required this.image});
+}
+
+class EmailLink {}
 
 class ProgramStudiList extends StatelessWidget {
-  final List<Map<String, String>> programStudiList = [
-    {'title': 'Administrasi Negara', 'image': 'assets/adneg.jpg'},
-    {'title': 'Administrasi Bisnis', 'image': 'assets/adbis.jpg'},
-    {'title': 'Linguistik', 'image': 'assets/linguistik.jpg'},
-    {'title': 'Hubungan Internasional', 'image': 'assets/hi.jpg'},
-    {'title': 'Pariwisata', 'image': 'assets/pariwisata.jpg'},
-    {'title': 'Profil Kelompok', 'image': 'assets/kelompok.jpg'},
+  final List<ProgramStudi> programStudiList = [
+    ProgramStudi(title: 'Administrasi Negara', image: 'assets/adneg.jpg'),
+    ProgramStudi(title: 'Administrasi Bisnis', image: 'assets/adbis.jpg'),
+    ProgramStudi(title: 'Linguistik', image: 'assets/linguistik.jpg'),
+    ProgramStudi(title: 'Hubungan Internasional', image: 'assets/hi.jpg'),
+    ProgramStudi(title: 'Pariwisata', image: 'assets/pariwisata.jpg'),
+    ProgramStudi(title: 'Profil Kelompok', image: 'assets/kelompok.jpg'),
   ];
 
   @override
@@ -19,17 +28,22 @@ class ProgramStudiList extends StatelessWidget {
     return Column(
       children: programStudiList.map((program) {
         return ProgramStudiTile(
-          title: program['title']!,
-          image: program['image']!,
+          title: program.title,
+          image: program.image,
           onTap: () {
-            if (program['title'] == 'Profil Kelompok') {
+            if (program.title == 'Profil Kelompok') {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilKelompokDetail()),
+              );
+            } else {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => ProfileKelompokDetail()),
+                  builder: (context) =>
+                      ProgramStudiDetail(title: program.title),
+                ),
               );
-            } else {
-              // Handle navigation for other items
             }
           },
         );
@@ -82,11 +96,9 @@ class ProgramStudiDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Cari data program studi berdasarkan judul
     ProdiData prodiData = dummyProdiData.firstWhere(
       (element) => element.title == title,
       orElse: () => ProdiData(
-        // Memberikan nilai default jika tidak ada elemen yang memenuhi kondisi
         title: '',
         visi: '',
         misi: [],
@@ -103,6 +115,7 @@ class ProgramStudiDetail extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
+        backgroundColor: Color.fromARGB(255, 255, 241, 113),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
@@ -134,56 +147,42 @@ class ProgramStudiDetail extends StatelessWidget {
   }
 
   Widget _buildInfoBox(String title, String content) {
-    return Container(
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey), // Garis pemisah
-        borderRadius: BorderRadius.circular(8), // Sudut membulat
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18, // Ukuran teks
+    return Card(
+      elevation: 3,
+      color: Colors.white,
+      margin: EdgeInsets.all(8),
+      child: Padding(
+        padding: EdgeInsets.all(8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
             ),
-          ),
-          SizedBox(height: 8),
-          Linkify(
-            onOpen: (link) {
-              if (link is EmailLink) {
-                launch('mailto:${link.url}');
-              } else {
-                launch(link.url);
-              }
-            },
-            text: content,
-            style: TextStyle(
-              fontSize: 16, // Ukuran teks
+            SizedBox(height: 8),
+            Linkify(
+              onOpen: (link) {
+                if (link is EmailLink) {
+                  launch('mailto:${link.url}');
+                } else {
+                  launch(link.url);
+                }
+              },
+              text: content,
+              style: TextStyle(
+                fontSize: 16,
+              ),
+              linkStyle: TextStyle(
+                color: Colors.blue,
+              ),
             ),
-            linkStyle: TextStyle(
-              color: Colors.blue, // Warna teks biru untuk URL
-              decoration: TextDecoration
-                  .underline, // Garis bawah untuk menunjukkan klik
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
-
-  void main() {
-    runApp(MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Program Studi'),
-        ),
-        body: ProgramStudiList(),
-      ),
-    ));
-  }
 }
-
-class EmailLink {}

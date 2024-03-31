@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ProfileKelompokDetail extends StatelessWidget {
+class ProfilKelompokDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Kelompok'),
+        title: Text('Profil Kelompok'),
+        backgroundColor: Color.fromARGB(255, 255, 241, 113),
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
@@ -56,10 +57,6 @@ class ProfileKelompokDetail extends StatelessWidget {
   }) {
     return Container(
       padding: EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10),
-      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -93,17 +90,15 @@ class ProfileKelompokDetail extends StatelessWidget {
   }
 
   Widget _buildDetailItem(String title, String content) {
-    Color textColor = Colors.black; // Warna default teks
-    bool clickable =
-        false; // Untuk menentukan apakah teks dapat diklik atau tidak
+    Color textColor = Colors.black;
+    bool clickable = false;
 
-    // Periksa jika judul adalah 'Email' atau 'URL Profil Github'
     if (title == 'Email') {
-      textColor = Colors.blue; // Warna teks menjadi biru
-      clickable = true; // Teks dapat diklik
+      textColor = Colors.blue;
+      clickable = true;
     } else if (title == 'URL Profil Github') {
-      textColor = Colors.blue; // Warna teks menjadi biru
-      clickable = true; // Teks dapat diklik
+      textColor = Colors.blue;
+      clickable = true;
     }
 
     return Column(
@@ -117,21 +112,20 @@ class ProfileKelompokDetail extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8),
-        // Gunakan InkWell hanya jika teks dapat diklik
         clickable
             ? InkWell(
                 onTap: () {
                   if (title == 'Email') {
-                    launch('mailto:$content'); // Meluncurkan aplikasi email
+                    launch('mailto:$content');
                   } else {
-                    launch(content); // Meluncurkan URL di browser
+                    launch(content);
                   }
                 },
                 child: Text(
                   content,
                   style: TextStyle(
                     fontSize: 16,
-                    color: textColor, // Menggunakan warna sesuai kondisi
+                    color: textColor,
                   ),
                 ),
               )
@@ -139,7 +133,7 @@ class ProfileKelompokDetail extends StatelessWidget {
                 content,
                 style: TextStyle(
                   fontSize: 16,
-                  color: textColor, // Menggunakan warna sesuai kondisi
+                  color: textColor,
                 ),
               ),
         SizedBox(height: 16),

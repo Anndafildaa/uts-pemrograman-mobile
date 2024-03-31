@@ -1,7 +1,7 @@
 class ProdiData {
   final String title;
   final String visi;
-  final List<String> misi; // Change type to List<String>
+  final List<String> misi;
   final String akreditasi;
   final String profil;
   final String ketuaProdi;
@@ -42,7 +42,7 @@ List<ProdiData> dummyProdiData = [
     ketuaProdi: 'Dra. Susi Hardjati, M.AP ',
     dosen: [
       '1. Drs. Ananta Prathama, M.Si',
-      '2. Indira Arundinasari, S.AP.,M.AP ',
+      '2. Indira Arundinasari, S.AP.,M.AP',
       '3. Bintii Azizatutun N., S.IAN.,M.P.A',
       '4. Dr. Diana Hertati, M.Si',
       '5. Bayu Priambodo, S.IP.,M.AP'
@@ -58,11 +58,11 @@ List<ProdiData> dummyProdiData = [
   ProdiData(
     title: 'Administrasi Bisnis',
     profil:
-        'Progdi Adbis berdiri pada tahun 1993 berdasarkan Surat Keputusan Menhankam Nomor Kep/01/II/1993, tanggal 27 Pebruari 1993 dengan status Negeri Kedinasan. Pada tahun 1994, berdasarkan Surat Keputusan Bersama Menhankam dan Mendukbud Nomor: Kep/0373/U/1994 – Kep/10/XI/1994, tanggal 29 Nopember 1994, UPN “Veteran” Jatim berubah statusnya menjadi Perguruan Tinggi Swasta dengan semua progdinya berstatus “Disamakan”. Pada tanggal 6 Oktober 2014 UPN “Veteran” berubah statusnya menjadi Perguruan Tinggi Negeri (PTN), berdasarkan Peraturan Presiden Nomor: 122 Tahun 2014 tentang Penegerian UPN “Veteran” Jawa Timur. ',
+        'Prodi Adbis berdiri pada tahun 1993 berdasarkan Surat Keputusan Menhankam Nomor Kep/01/II/1993, tanggal 27 Pebruari 1993 dengan status Negeri Kedinasan. Pada tahun 1994, berdasarkan Surat Keputusan Bersama Menhankam dan Mendukbud Nomor: Kep/0373/U/1994 – Kep/10/XI/1994, tanggal 29 Nopember 1994, UPN “Veteran” Jatim berubah statusnya menjadi Perguruan Tinggi Swasta dengan semua progdinya berstatus “Disamakan”. Pada tanggal 6 Oktober 2014 UPN “Veteran” berubah statusnya menjadi Perguruan Tinggi Negeri (PTN), berdasarkan Peraturan Presiden Nomor: 122 Tahun 2014 tentang Penegerian UPN “Veteran” Jawa Timur. ',
     visi:
         'VISI PROGRAM STUDI ADMINISTRASI BISNIS FAKULTAS ILMU SOSIAL DAN ILMU POLITIK UPN “VETERAN” JAWA TIMUR (FISIP-UPNVJT) SEBAGAI LEMBAGA PENGEMBANGAN ILMU DAN TEKNOLOGI DI BIDANG ADMINISTRASI BISNIS YANG UNGGUL, TERPERCAYA DAN BERKARAKTER BELA NEGARA PADA TAHUN 2024”',
     misi: [
-      '1.Menyelenggarakan pendidikan dan pengajaran di bidang Administrasi Bisnis yang berkualitas, relevan, dan berorientasi pada kebutuhan masyarakat, bangsa, dan negara ',
+      '1. Menyelenggarakan pendidikan dan pengajaran di bidang Administrasi Bisnis yang berkualitas, relevan, dan berorientasi pada kebutuhan masyarakat, bangsa, dan negara ',
       '2. Menyelenggarakan kegiatan penelitian di bidang Administrasi Bisnis utamanya pada bidang pemasaran, keuangan, sumber daya manusia, sistem informasi bisnis, operasi bisnis, kebijakan bisnis serta mengimplementasikannya dalam pendidikan dan pengajaran serta pengabdian pada masyarakat. ',
       '3. Mengembangkan dan menguatkan hubungan kerjasama dengan berbagai pihak baik dengan pemerintah maupun lembaga swasta, dalam dan luar negeri.',
     ],
@@ -70,10 +70,10 @@ List<ProdiData> dummyProdiData = [
     ketuaProdi: 'Dr.Acep Samsudin., S,Sos.,MM.,MA',
     dosen: [
       '1. Dr.Ir. Rusdi Hidayat N, M.Si',
-      '2.  Dr. Drs. Nurhadi, M.Si ',
+      '2. Dr. Drs. Nurhadi, M.Si',
       '3. R Yuniadi Rusdianto, M.Si',
       '4. Dra. Ety Dwi Susanti, M.Si',
-      '5. Dra. Sonja Andarini, M.Si ',
+      '5. Dra. Sonja Andarini, M.Si',
     ],
     website: 'https://adbis.upnjatim.ac.id/  ',
     email: 'adbisupnvjt@gmail.com',
@@ -91,9 +91,9 @@ List<ProdiData> dummyProdiData = [
         'MENJADI PUSAT PENGKAJIAN LINGUISTIK INDONESIA YANG UNGGUL PADA TINGKAT NASIONAL DAN INTERNASIONAL SERTA BERKARAKTER BELA NEGARA',
     misi: [
       '1. Menyelenggarakan pendidikan di bidang Linguistik Indonesia untuk menghasilkan lulusan yang inovatif, adaptif, dan responsif terhadap tantangan global ',
-      '3.Mengembangkan penelitian di bidang Linguistik Indonesia yang berorientasi pada kemajuan ilmu pengetahuan, teknologi, dan seni untuk menuju research university ',
-      '4. Mendedikasikan ilmu Linguistik Indonesia untuk kemajuan masyarakat ',
-      '5. Membangun kerja sama dengan institusi pemerintah dan swasta pada tingkat nasional dan internasional',
+      '2. Mengembangkan penelitian di bidang Linguistik Indonesia yang berorientasi pada kemajuan ilmu pengetahuan, teknologi, dan seni untuk menuju research university ',
+      '3. Mendedikasikan ilmu Linguistik Indonesia untuk kemajuan masyarakat ',
+      '4. Membangun kerja sama dengan institusi pemerintah dan swasta pada tingkat nasional dan internasional',
     ],
     akreditasi: 'BAIK',
     ketuaProdi: 'Dr. Endang Sholihatin, S.Pd., M.Pd.',
@@ -124,10 +124,10 @@ List<ProdiData> dummyProdiData = [
     ketuaProdi: 'Dra. Herlina Suksmawati, M.Si.',
     dosen: [
       '1. Adiasri Putri Purbantina, Ph.D',
-      '2. Megahnanda Alidyan Kresnawati, S.IP., M.IP. ',
-      '3. Prihandono Wibowo, S.Hub.Int., M.Hub.Int. ',
-      '4. Resa Rasyidah, S.Hub.Int., M.Hub.Int. ',
-      '5. Praja Firdaus Nuryananda, S.Hub.Int., M.Hub.Int. ',
+      '2. Megahnanda Alidyan Kresnawati, S.IP., M.IP.',
+      '3. Prihandono Wibowo, S.Hub.Int., M.Hub.Int.',
+      '4. Resa Rasyidah, S.Hub.Int., M.Hub.Int.',
+      '5. Praja Firdaus Nuryananda, S.Hub.Int., M.Hub.Int.',
     ],
     website: 'https://hubint.upnjatim.ac.id/  ',
     email: 'hubint@upnjatim.ac.id',
@@ -157,8 +157,8 @@ List<ProdiData> dummyProdiData = [
       '1. Leily Suci Rahmatin, S.Par., M.Par',
       '2. Sheidy Yudhiasta, S.Pd., M.Par',
       '3. Wahyuni, SST.Par., M.Par',
-      '4. Dr. A. Muammar Alawi, M.Pd.I. ',
-      '5. Joko Mijiarto, S.Hut., M.Si ',
+      '4. Dr. A. Muammar Alawi, M.Pd.I.',
+      '5. Joko Mijiarto, S.Hut., M.Si',
     ],
     website: 'https://pariwisata.upnjatim.ac.id/   ',
     email: 'pariwisata@upnjatim.ac.id',
